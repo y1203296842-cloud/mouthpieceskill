@@ -1,0 +1,29 @@
+{
+  "_doc": "默认偏好画像（v1.8.0 内置，随 Skill 分发）。来源：历史偏好测评 78 样本 + 26 条用户验证经验，已脱敏。新用户无个人画像时使用本默认值；个人画像存在时覆盖。",
+  "dims": {
+    "coldness": {"value": 2.83, "confidence": 0.5, "sample_count": 6},
+    "aggression": {"value": 2.34, "confidence": 0.84, "sample_count": 32},
+    "sarcasm": {"value": 3.05, "confidence": 0.81, "sample_count": 26},
+    "oral": {"value": 3.95, "confidence": 0.84, "sample_count": 32},
+    "concise": {"value": 3.16, "confidence": 0.88, "sample_count": 46},
+    "emotion": {"value": 1.73, "confidence": 0.65, "sample_count": 11},
+    "boundary": {"value": 2.93, "confidence": 0.54, "sample_count": 7},
+    "realism": {"value": 4.29, "confidence": 0.84, "sample_count": 31}
+  },
+  "retort_style": {
+    "direct": 0.5,
+    "rhetorical": 0.0,
+    "disdain": 0.0,
+    "tit_for_tat": 0.5,
+    "logic": 0.0
+  },
+  "fact_handling": {
+    "admit_then_retort": 1.0,
+    "deflect": 0.0,
+    "attack_behavior": 0.0
+  },
+  "dislikes": 16,
+  "total_samples": 78,
+  "stability": 0.74,
+  "is_default": true
+}

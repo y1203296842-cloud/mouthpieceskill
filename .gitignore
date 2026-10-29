@@ -1,0 +1,30 @@
+# Python 缓存
+__pycache__/
+*.pyc
+*.pyo
+
+# 开发/临时
+*.log
+*.tmp
+.DS_Store
+Thumbs.db
+
+# 发布产物（zip 由 Release 流程生成，不纳入源码仓库）
+*.zip
+SHA256SUMS
+
+# 用户私有数据（多用户记忆：称呼/偏好/人物/事件——绝不入库）
+memory/users/*/user/
+memory/users/*/people/
+memory/users/*/events/
+memory/users/*/feedback/
+memory/users/*/candidates/
+memory/users/*/preferences/
+memory/users/*/records.jsonl
+
+# 第三方来源层（开发环境审计用，不随仓库分发）
+raw/
+
+# 本地/开发配置（如存在）
+.env
+*.local

@@ -1,0 +1,1000 @@
+[
+  {
+    "case_id": "aibiaoxian-爱表现",
+    "canonical_trigger": "别人内涵你爱表现、爱出风头、爱邀功",
+    "intent": "回应别人对你爱表现/爱出风头的内涵",
+    "query_examples": [
+      "同事内涵我爱表现怎么回",
+      "别人说我爱出风头怎么怼",
+      "说我爱邀功怎么办",
+      "室友内涵我爱表现"
+    ],
+    "keywords": [
+      "爱表现",
+      "出风头",
+      "邀功",
+      "表现",
+      "抢功"
+    ],
+    "scope": "broad",
+    "scene_constraints": [],
+    "relation_constraints": [],
+    "status": "verified",
+    "tone": "犀利",
+    "strength": "中"
+  },
+  {
+    "case_id": "bingui-比你贵",
+    "canonical_trigger": "别人攀比，暗示自己比你贵/更有档次",
+    "intent": "阴阳对方攀比",
+    "query_examples": [
+      "同事说他比我贵怎么回",
+      "别人炫耀比我档次高怎么阴阳",
+      "朋友说我用的没他好怎么回",
+      "室友攀比我怎么怼"
+    ],
+    "keywords": [
+      "贵",
+      "比你贵",
+      "攀比",
+      "档次"
+    ],
+    "scope": "broad",
+    "scene_constraints": [],
+    "relation_constraints": [],
+    "status": "verified",
+    "tone": "阴阳",
+    "strength": "中"
+  },
+  {
+    "case_id": "buhequn-不合群",
+    "canonical_trigger": "别人说你不会做人、不合群、合不来",
+    "intent": "回应别人对你'不合群/不会做人'的指责",
+    "query_examples": [
+      "同事说我不合群怎么回",
+      "室友说我不会做人怎么怼",
+      "别人说我不合群怎么办"
+    ],
+    "keywords": [
+      "不合群",
+      "合群",
+      "不合得来",
+      "社交"
+    ],
+    "scope": "broad",
+    "scene_constraints": [],
+    "relation_constraints": [],
+    "status": "verified",
+    "tone": "冷",
+    "strength": "中"
+  },
+  {
+    "case_id": "buxihuanni-领导不喜欢",
+    "canonical_trigger": "领导/上司说他不想用你、不喜欢你",
+    "intent": "应对领导表达不喜欢的试探，反杀又不失分寸",
+    "query_examples": [
+      "领导说不喜欢我怎么回",
+      "老板说不喜欢我怎么办",
+      "上司说我不好怎么接",
+      "领导不待见我怎么办",
+      "领导看不上我怎么回"
+    ],
+    "keywords": [
+      "领导",
+      "不喜欢",
+      "不喜欢你",
+      "不待见",
+      "看不上",
+      "嫌弃"
+    ],
+    "scope": "relational",
+    "scene_constraints": [],
+    "relation_constraints": [
+      "领导"
+    ],
+    "status": "verified",
+    "tone": "冷",
+    "strength": "中"
+  },
+  {
+    "case_id": "caicai-游戏太菜",
+    "canonical_trigger": "喜欢的人打游戏太菜，想撩/逗他",
+    "intent": "用撩/幽默回应对方游戏菜",
+    "query_examples": [
+      "crush打游戏太菜怎么回",
+      "对象游戏菜怎么逗",
+      "喜欢的人菜怎么撩",
+      "男朋友打游戏菜怎么接"
+    ],
+    "keywords": [
+      "游戏",
+      "菜",
+      "太菜",
+      "crush",
+      "打游戏"
+    ],
+    "scope": "relational",
+    "scene_constraints": [],
+    "relation_constraints": [
+      "暧昧"
+    ],
+    "status": "verified",
+    "tone": "撩",
+    "strength": "低"
+  },
+  {
+    "case_id": "chicu-吃醋",
+    "canonical_trigger": "crush/喜欢的人故意让你吃醋",
+    "intent": "回应吃醋试探，撩回去",
+    "query_examples": [
+      "对象想让我吃醋怎么回",
+      "crush故意气我吃醋怎么办"
+    ],
+    "keywords": [
+      "吃醋",
+      "crush",
+      "暧昧"
+    ],
+    "scope": "domain_specific",
+    "scene_constraints": [
+      "情感"
+    ],
+    "relation_constraints": [],
+    "status": "verified",
+    "tone": "撩",
+    "strength": "中"
+  },
+  {
+    "case_id": "cuihun-亲戚催婚",
+    "canonical_trigger": "亲戚过年以关心为名追问你对象/催婚/揶揄，想敷衍怼回去",
+    "intent": "应付亲戚过年的盘问/揶揄，不接茬",
+    "query_examples": [
+      "过年亲戚一直问我对象怎么回",
+      "亲戚催婚怎么敷衍",
+      "被亲戚盘问怎么怼",
+      "亲戚问我怎么还不结婚怎么办"
+    ],
+    "keywords": [
+      "亲戚",
+      "过年",
+      "催婚",
+      "对象",
+      "盘问"
+    ],
+    "scope": "relational",
+    "scene_constraints": [],
+    "relation_constraints": [
+      "亲戚"
+    ],
+    "status": "verified",
+    "tone": "轻松",
+    "strength": "中"
+  },
+  {
+    "case_id": "cush-催生儿子",
+    "canonical_trigger": "过年/长辈催你生儿子、说'明年争点气生个儿子'",
+    "intent": "回应长辈催生儿子的催促",
+    "query_examples": [
+      "长辈催我生儿子怎么回",
+      "亲戚说争气生个儿子怎么办",
+      "过年被催生怎么怼",
+      "婆婆催生儿子怎么回"
+    ],
+    "keywords": [
+      "催生",
+      "儿子",
+      "争气",
+      "生孩子",
+      "长辈"
+    ],
+    "scope": "scene_specific",
+    "scene_constraints": [
+      "催婚",
+      "家庭"
+    ],
+    "relation_constraints": [
+      "亲戚"
+    ],
+    "status": "verified",
+    "tone": "犀利",
+    "strength": "中"
+  },
+  {
+    "case_id": "daifan-带饭家里穷",
+    "canonical_trigger": "别人说你天天带饭是不是家里穷/点外卖是不是没家",
+    "intent": "回应别人拿你的生活方式开涮",
+    "query_examples": [
+      "同事说我带饭家里穷怎么回",
+      "别人说点外卖没家怎么怼",
+      "被拿生活方式开涮怎么办",
+      "室友说我有钱还带饭"
+    ],
+    "keywords": [
+      "家里穷",
+      "点外卖",
+      "没有家",
+      "寒酸",
+      "抠门",
+      "省那点钱",
+      "穷讲究",
+      "生活方式开涮",
+      "带饭寒酸"
+    ],
+    "scope": "broad",
+    "scene_constraints": [],
+    "relation_constraints": [],
+    "status": "verified",
+    "tone": "冷",
+    "strength": "中"
+  },
+  {
+    "case_id": "dating-爱打听",
+    "canonical_trigger": "同事总爱打听你的私事、工资、八卦",
+    "intent": "回应别人爱打听隐私/八卦",
+    "query_examples": [
+      "同事总打听我私事怎么回",
+      "别人问我工资怎么怼",
+      "老被问八卦怎么接",
+      "爱打听怎么办"
+    ],
+    "keywords": [
+      "打听",
+      "八卦",
+      "隐私",
+      "私事",
+      "工资"
+    ],
+    "scope": "broad",
+    "scene_constraints": [],
+    "relation_constraints": [],
+    "status": "verified",
+    "tone": "冷",
+    "strength": "中"
+  },
+  {
+    "case_id": "daxuesheng-亏你还是大学生",
+    "canonical_trigger": "别人拿你的学历/读书/出身说事（如'亏你还是大学生'）",
+    "intent": "回应别人对你学历/读书的阴阳",
+    "query_examples": [
+      "同事说亏你还是大学生怎么回",
+      "亲戚说我读书没用怎么怼",
+      "朋友笑我学历怎么接",
+      "别人拿我学历说事怎么办"
+    ],
+    "keywords": [
+      "大学生",
+      "学历",
+      "读书",
+      "书白读了"
+    ],
+    "scope": "broad",
+    "scene_constraints": [],
+    "relation_constraints": [],
+    "status": "verified",
+    "tone": "犀利",
+    "strength": "中"
+  },
+  {
+    "case_id": "dingzui-说你顶嘴",
+    "canonical_trigger": "对方说你嘴太厉害、'我说一句你顶十句'",
+    "intent": "回应别人指责你顶嘴/回嘴",
+    "query_examples": [
+      "别人说我顶嘴怎么回",
+      "长辈说我嘴太厉害怎么办",
+      "对方说我回十句怎么怼",
+      "说我顶撞怎么接"
+    ],
+    "keywords": [
+      "顶嘴",
+      "嘴厉害",
+      "回嘴",
+      "顶十句",
+      "不服气"
+    ],
+    "scope": "broad",
+    "scene_constraints": [],
+    "relation_constraints": [],
+    "status": "verified",
+    "tone": "冷",
+    "strength": "中"
+  },
+  {
+    "case_id": "fenshou-说分手",
+    "canonical_trigger": "对象/男朋友突然说分手",
+    "intent": "应对提分手的试探，扳回一局又不卑微",
+    "query_examples": [
+      "对象突然说分手怎么回",
+      "男朋友提分手怎么接"
+    ],
+    "keywords": [
+      "分手",
+      "男朋友",
+      "恋人"
+    ],
+    "scope": "domain_specific",
+    "scene_constraints": [
+      "情感"
+    ],
+    "relation_constraints": [],
+    "status": "verified",
+    "tone": "稳",
+    "strength": "中"
+  },
+  {
+    "case_id": "guanxi-靠关系",
+    "canonical_trigger": "别人内涵/说你靠关系、关系户、走后门",
+    "intent": "回应别人对你靠关系/走后门的质疑",
+    "query_examples": [
+      "同事说我是关系户怎么回",
+      "别人内涵我靠关系",
+      "说我走后门怎么怼",
+      "领导说我靠关系怎么办",
+      "室友内涵我靠关系怎么回",
+      "亲戚说我走后门怎么办"
+    ],
+    "keywords": [
+      "关系户",
+      "靠关系",
+      "走后门",
+      "关系",
+      "考进来"
+    ],
+    "scope": "broad",
+    "scene_constraints": [],
+    "relation_constraints": [],
+    "status": "verified",
+    "tone": "犀利",
+    "strength": "高"
+  },
+  {
+    "case_id": "haizi-他还小",
+    "canonical_trigger": "公共场所孩子吵/闹，你嫌吵，对方用'他还是个孩子'护短，或家长在场却不制止",
+    "intent": "回击'他还是个孩子'式护短、家长不作为",
+    "query_examples": [
+      "高铁上孩子吵，我说嫌吵，对方说他还小怎么怼",
+      "对方说嫌吵你去坐一等座呀，他还是个孩子怎么回",
+      "公共场所熊孩子吵，家长拿孩子当挡箭牌怎么怼",
+      "孩子吵家长不管还护短怎么回"
+    ],
+    "keywords": [
+      "孩子",
+      "吵",
+      "嫌吵",
+      "他还小",
+      "他还是个孩子",
+      "一等座",
+      "熊孩子",
+      "家长",
+      "护短"
+    ],
+    "scope": "scene_specific",
+    "scene_constraints": [
+      "公共交通",
+      "公共场所"
+    ],
+    "relation_constraints": [
+      "陌生人",
+      "路人"
+    ],
+    "status": "verified",
+    "tone": "阴阳",
+    "strength": "高"
+  },
+  {
+    "case_id": "haolei-说好累",
+    "canonical_trigger": "对象/crush 说好累、很累",
+    "intent": "心疼+撩，接住对方的累",
+    "query_examples": [
+      "对象说好累怎么回",
+      "crush说累怎么安慰撩"
+    ],
+    "keywords": [
+      "好累",
+      "累",
+      "crush",
+      "安慰"
+    ],
+    "scope": "domain_specific",
+    "scene_constraints": [
+      "情感"
+    ],
+    "relation_constraints": [],
+    "status": "verified",
+    "tone": "心疼",
+    "strength": "中"
+  },
+  {
+    "case_id": "hong-哄冷淡对象",
+    "canonical_trigger": "对象/暧昧对象冷淡了，想哄回来",
+    "intent": "破冰哄回冷淡对象",
+    "query_examples": [
+      "对象冷淡了怎么哄",
+      "crush突然冷淡怎么回"
+    ],
+    "keywords": [
+      "冷淡",
+      "crush",
+      "哄",
+      "回心转意"
+    ],
+    "scope": "domain_specific",
+    "scene_constraints": [
+      "情感"
+    ],
+    "relation_constraints": [],
+    "status": "verified",
+    "tone": "撩",
+    "strength": "中"
+  },
+  {
+    "case_id": "huachi-犯花痴",
+    "canonical_trigger": "闺蜜/朋友犯花痴、发桃花癫",
+    "intent": "用幽默/调侃回应对方犯花痴",
+    "query_examples": [
+      "闺蜜犯花痴怎么回",
+      "朋友发桃花癫怎么办",
+      "别人犯花痴怎么接",
+      "闺蜜追星发癫怎么回"
+    ],
+    "keywords": [
+      "花痴",
+      "桃花",
+      "犯花痴",
+      "闺蜜",
+      "发癫"
+    ],
+    "scope": "relational",
+    "scene_constraints": [],
+    "relation_constraints": [
+      "朋友"
+    ],
+    "status": "verified",
+    "tone": "幽默",
+    "strength": "低"
+  },
+  {
+    "case_id": "huotuichang-喂狗",
+    "canonical_trigger": "别人阴阳你吃/用的东西不值，拿'喂狗''白搭'之类说事",
+    "intent": "回应对方阴阳你的东西不值钱/像喂狗",
+    "query_examples": [
+      "同事阴阳我拿东西喂狗怎么回",
+      "别人说我东西像拿来喂狗怎么办",
+      "别人说我用的东西白搭怎么回"
+    ],
+    "keywords": [
+      "喂狗",
+      "拿东西说事",
+      "东西不值"
+    ],
+    "scope": "broad",
+    "scene_constraints": [
+      "针对\"东西不值/喂狗\"式阴阳，不泛化到所有阴阳"
+    ],
+    "relation_constraints": [],
+    "status": "verified",
+    "tone": "犀利",
+    "strength": "高"
+  },
+  {
+    "case_id": "jiangjin-发奖金请客",
+    "canonical_trigger": "同事说你发奖金了不请客/阴阳你抠门",
+    "intent": "回应别人阴阳你发奖金不请客",
+    "query_examples": [
+      "同事说我发奖金不请客怎么回",
+      "别人阴阳我抠门怎么办",
+      "被说请不起客怎么怼",
+      "同事催我请吃饭"
+    ],
+    "keywords": [
+      "奖金",
+      "请客",
+      "抠门",
+      "工资"
+    ],
+    "scope": "scene_specific",
+    "scene_constraints": [
+      "职场"
+    ],
+    "relation_constraints": [
+      "同事"
+    ],
+    "status": "verified",
+    "tone": "犀利",
+    "strength": "中"
+  },
+  {
+    "case_id": "joke-你爸妈不要你喽",
+    "canonical_trigger": "对方说'你爸妈不要你喽'、拿你爸妈开玩笑",
+    "intent": "回应别人拿你爸妈开玩笑/逗你",
+    "query_examples": [
+      "别人说你爸妈不要你喽怎么回",
+      "被人拿爸妈开玩笑怎么怼",
+      "对方说没人要你了怎么回",
+      "室友拿我爸妈逗我怎么办"
+    ],
+    "keywords": [
+      "你爸妈",
+      "不要你",
+      "没人要",
+      "开玩笑"
+    ],
+    "scope": "broad",
+    "scene_constraints": [],
+    "relation_constraints": [],
+    "status": "verified",
+    "tone": "冷",
+    "strength": "中"
+  },
+  {
+    "case_id": "joke-只是开玩笑",
+    "canonical_trigger": "别人说你太较真，说只是开个玩笑",
+    "intent": "回应别人说'你太较真'、'只是开玩笑'的指责",
+    "query_examples": [
+      "别人说我只是开玩笑你太较真怎么回",
+      "说我开不起玩笑怎么怼",
+      "对方说我较真怎么办",
+      "朋友说你太认真了怎么回"
+    ],
+    "keywords": [
+      "较真",
+      "开玩笑",
+      "认真",
+      "幽默"
+    ],
+    "scope": "broad",
+    "scene_constraints": [],
+    "relation_constraints": [],
+    "status": "verified",
+    "tone": "冷",
+    "strength": "中"
+  },
+  {
+    "case_id": "juejiao-装疯卖傻绝交",
+    "canonical_trigger": "喜欢的人说你装疯卖傻、要和你绝交",
+    "intent": "回应暧昧对象说你装疯卖傻/要绝交的试探",
+    "query_examples": [
+      "crush说再装疯卖傻就绝交怎么回",
+      "对象说我疯了要绝交",
+      "暧昧对象要绝交怎么挽",
+      "说我装傻怎么接"
+    ],
+    "keywords": [
+      "装疯卖傻",
+      "绝交",
+      "疯",
+      "傻",
+      "crush"
+    ],
+    "scope": "relational",
+    "scene_constraints": [],
+    "relation_constraints": [
+      "暧昧"
+    ],
+    "status": "verified",
+    "tone": "撩",
+    "strength": "低"
+  },
+  {
+    "case_id": "kadian-卡点下班",
+    "canonical_trigger": "同事说你卡点下班、踩点下班，阴阳你",
+    "intent": "回应别人对你卡点下班的阴阳",
+    "query_examples": [
+      "同事说我卡点下班怎么回",
+      "同事说我下班太准时怎么怼"
+    ],
+    "keywords": [
+      "卡点",
+      "下班",
+      "摸鱼",
+      "加班"
+    ],
+    "scope": "domain_specific",
+    "scene_constraints": [
+      "职场"
+    ],
+    "relation_constraints": [],
+    "status": "verified",
+    "tone": "犀利",
+    "strength": "中"
+  },
+  {
+    "case_id": "ke-领导觉得你克他",
+    "canonical_trigger": "领导觉得你克他、针对他、阴阳你",
+    "intent": "回应领导觉得你克他/针对你的说法",
+    "query_examples": [
+      "领导觉得我克他怎么办",
+      "领导针对我怎么回",
+      "领导阴阳我说我克他",
+      "老板说我克他"
+    ],
+    "keywords": [
+      "克",
+      "领导",
+      "针对",
+      "刺头"
+    ],
+    "scope": "relational",
+    "scene_constraints": [
+      "职场"
+    ],
+    "relation_constraints": [
+      "领导"
+    ],
+    "status": "verified",
+    "tone": "冷",
+    "strength": "中"
+  },
+  {
+    "case_id": "nijile-你急了",
+    "canonical_trigger": "别人说你急了、破防了",
+    "intent": "回应别人说你急了的扣帽子",
+    "query_examples": [
+      "同事说我急了怎么回",
+      "别人说我破防了怎么怼",
+      "朋友说我急了怎么办"
+    ],
+    "keywords": [
+      "你急了",
+      "急",
+      "破防"
+    ],
+    "scope": "broad",
+    "scene_constraints": [],
+    "relation_constraints": [],
+    "status": "verified",
+    "tone": "犀利",
+    "strength": "中"
+  },
+  {
+    "case_id": "paimapi-升职靠拍马屁",
+    "canonical_trigger": "同事说你升职是靠拍马屁/讨好领导",
+    "intent": "回应别人对你升职靠关系的质疑",
+    "query_examples": [
+      "同事说我升职靠拍马屁怎么回",
+      "别人说我讨好领导怎么办"
+    ],
+    "keywords": [
+      "拍马屁",
+      "升职",
+      "讨好",
+      "靠关系"
+    ],
+    "scope": "domain_specific",
+    "scene_constraints": [
+      "职场"
+    ],
+    "relation_constraints": [],
+    "status": "verified",
+    "tone": "中",
+    "strength": "中"
+  },
+  {
+    "case_id": "qing-请客跳过你",
+    "canonical_trigger": "同事请客/发东西故意跳过你，把你排除在外",
+    "intent": "回应被别人刻意冷落/排除在外",
+    "query_examples": [
+      "同事请奶茶跳过我怎么回",
+      "请客故意不叫我怎么怼",
+      "被排除在外怎么办",
+      "别人发东西跳过你"
+    ],
+    "keywords": [
+      "请客",
+      "跳过",
+      "奶茶",
+      "冷落",
+      "排除",
+      "针对"
+    ],
+    "scope": "broad",
+    "scene_constraints": [],
+    "relation_constraints": [],
+    "status": "verified",
+    "tone": "犀利",
+    "strength": "中"
+  },
+  {
+    "case_id": "rangzuo-让座",
+    "canonical_trigger": "陌生人/长辈指责你没让座、没家教",
+    "intent": "回应陌生人对让座/素质的指责，不卑不亢",
+    "query_examples": [
+      "大爷说我妈没教让座怎么回",
+      "陌生人指责我没让座怎么怼"
+    ],
+    "keywords": [
+      "让座",
+      "大爷",
+      "地铁",
+      "没家教",
+      "素质"
+    ],
+    "scope": "relational",
+    "scene_constraints": [],
+    "relation_constraints": [
+      "陌生人",
+      "长辈"
+    ],
+    "status": "verified",
+    "tone": "犀利",
+    "strength": "高"
+  },
+  {
+    "case_id": "reject-tuoyanni",
+    "canonical_trigger": "别人/同事说你很讨厌、非常讨厌你，想一句话怼回去",
+    "intent": "回应别人的讨厌/排斥，不撕破脸又想扳回一局",
+    "query_examples": [
+      "同事说讨厌我怎么回",
+      "室友说我讨厌我怎么办",
+      "别人说很讨厌我",
+      "朋友说烦我怎么怼",
+      "说我讨人厌怎么接"
+    ],
+    "keywords": [
+      "讨厌",
+      "非常讨厌",
+      "排斥",
+      "不喜欢",
+      "烦"
+    ],
+    "scope": "broad",
+    "scene_constraints": [],
+    "relation_constraints": [],
+    "status": "verified",
+    "tone": "冷",
+    "strength": "中"
+  },
+  {
+    "case_id": "renji-人机提问",
+    "canonical_trigger": "喜欢的人突然问你奇怪问题（人机提问/查岗）",
+    "intent": "暧昧对象查岗/人机提问时的撩拨回应",
+    "query_examples": [
+      "crush人机提问怎么回",
+      "喜欢的人问我奇怪问题怎么撩",
+      "对象查岗怎么回",
+      "暧昧对象在干嘛怎么答"
+    ],
+    "keywords": [
+      "人机",
+      "提问",
+      "在干嘛",
+      "crush",
+      "暧昧"
+    ],
+    "scope": "relational",
+    "scene_constraints": [],
+    "relation_constraints": [
+      "暧昧"
+    ],
+    "status": "verified",
+    "tone": "撩",
+    "strength": "低"
+  },
+  {
+    "case_id": "shengao-喜欢高的",
+    "canonical_trigger": "自己说'喜欢高的'，被人嘲笑/围攻身高",
+    "intent": "自嘲接梗，化解被围攻身高",
+    "query_examples": [
+      "我说喜欢高的被喷怎么回",
+      "别人笑我矮怎么接",
+      "朋友拿我身高开玩笑怎么怼",
+      "室友说我矮怎么回"
+    ],
+    "keywords": [
+      "喜欢高的",
+      "身高",
+      "矮",
+      "被喷"
+    ],
+    "scope": "broad",
+    "scene_constraints": [],
+    "relation_constraints": [],
+    "status": "verified",
+    "tone": "轻松",
+    "strength": "中"
+  },
+  {
+    "case_id": "taimingan-太敏感",
+    "canonical_trigger": "别人说你太敏感、想太多、玻璃心，想一句话怼回去",
+    "intent": "回应别人对你敏感/想太多的指责",
+    "query_examples": [
+      "室友说我太敏感怎么回",
+      "同事说我太敏感",
+      "朋友说我太敏感了怎么怼",
+      "别人说我想太多怎么回",
+      "说我玻璃心怎么接"
+    ],
+    "keywords": [
+      "太敏感",
+      "敏感",
+      "想太多",
+      "玻璃心",
+      "想多了"
+    ],
+    "scope": "broad",
+    "scene_constraints": [],
+    "relation_constraints": [],
+    "status": "verified",
+    "tone": "冷",
+    "strength": "中"
+  },
+  {
+    "case_id": "tuodi-使唤你干活",
+    "canonical_trigger": "别人使唤你干活、拖地、跑腿，想守住边界",
+    "intent": "守住边界，拒绝被使唤",
+    "query_examples": [
+      "同事老使唤我干活怎么回",
+      "室友使唤我做事怎么怼",
+      "家里总让我跑腿怎么办",
+      "别人让我打杂怎么拒绝"
+    ],
+    "keywords": [
+      "使唤",
+      "拖地",
+      "干活",
+      "跑腿",
+      "打杂",
+      "边界"
+    ],
+    "scope": "broad",
+    "scene_constraints": [],
+    "relation_constraints": [],
+    "status": "verified",
+    "tone": "犀利",
+    "strength": "中"
+  },
+  {
+    "case_id": "xianzou-你先走",
+    "canonical_trigger": "同事说'别人都没走你就先走了'",
+    "intent": "回应别人指责你提前下班/不合群",
+    "query_examples": [
+      "同事说我走得太早怎么回",
+      "别人说你提前下班怎么办",
+      "说我不合群先走怎么怼",
+      "领导说我走得早"
+    ],
+    "keywords": [
+      "下班",
+      "先走",
+      "没走",
+      "卡点",
+      "合群"
+    ],
+    "scope": "scene_specific",
+    "scene_constraints": [
+      "职场"
+    ],
+    "relation_constraints": [
+      "同事"
+    ],
+    "status": "verified",
+    "tone": "冷",
+    "strength": "中"
+  },
+  {
+    "case_id": "xinchao-新来被为难",
+    "canonical_trigger": "新来的被老同事为难、给你难堪、挑你刺",
+    "intent": "回应老同事对新人的排挤/难堪",
+    "query_examples": [
+      "新来的被同事为难怎么回",
+      "老同事给我难堪怎么怼",
+      "同事挑我刺怎么办",
+      "新人被针对怎么回"
+    ],
+    "keywords": [
+      "新来的",
+      "为难",
+      "难堪",
+      "挑刺",
+      "排挤"
+    ],
+    "scope": "scene_specific",
+    "scene_constraints": [
+      "职场"
+    ],
+    "relation_constraints": [
+      "同事"
+    ],
+    "status": "verified",
+    "tone": "犀利",
+    "strength": "中"
+  },
+  {
+    "case_id": "yidubuhui-已读不回",
+    "canonical_trigger": "crush/喜欢的人已读不回",
+    "intent": "打破冷场/试探对方，拉近距离",
+    "query_examples": [
+      "crush已读不回了怎么找话",
+      "喜欢的人不回消息怎么撩"
+    ],
+    "keywords": [
+      "已读不回",
+      "crush",
+      "暧昧",
+      "不回"
+    ],
+    "scope": "domain_specific",
+    "scene_constraints": [
+      "情感"
+    ],
+    "relation_constraints": [],
+    "status": "verified",
+    "tone": "撩",
+    "strength": "中"
+  },
+  {
+    "case_id": "yilai-你一来就出问题",
+    "canonical_trigger": "同事/领导说'怎么你一来就出问题/东西就坏了'",
+    "intent": "回应别人把问题赖到你身上",
+    "query_examples": [
+      "同事说我一来就出问题怎么回",
+      "领导怪我一来东西就坏",
+      "别人说都是我的问题怎么办",
+      "被赖账怎么怼"
+    ],
+    "keywords": [
+      "一来",
+      "出问题",
+      "坏了",
+      "怪你",
+      "赖你"
+    ],
+    "scope": "scene_specific",
+    "scene_constraints": [
+      "职场"
+    ],
+    "relation_constraints": [
+      "同事"
+    ],
+    "status": "verified",
+    "tone": "冷",
+    "strength": "中"
+  },
+  {
+    "case_id": "zhaohua-找话",
+    "canonical_trigger": "crush/喜欢的人不说话、冷场",
+    "intent": "破冰找话，拉近距离",
+    "query_examples": [
+      "crush不说话怎么找话",
+      "喜欢的人不主动怎么破冰"
+    ],
+    "keywords": [
+      "crush",
+      "不说话",
+      "找话",
+      "破冰",
+      "冷场"
+    ],
+    "scope": "domain_specific",
+    "scene_constraints": [
+      "情感"
+    ],
+    "relation_constraints": [],
+    "status": "verified",
+    "tone": "撩",
+    "strength": "中"
+  },
+  {
+    "case_id": "zhiliao-摆资历",
+    "canonical_trigger": "对方摆资历说'我吃的盐比你吃的饭还多'",
+    "intent": "回应别人倚老卖老摆资历",
+    "query_examples": [
+      "长辈说我吃的盐比你多怎么回",
+      "别人摆资历怎么怼",
+      "倚老卖老说我经历的比你多怎么办",
+      "别人说管得宽怎么接"
+    ],
+    "keywords": [
+      "资历",
+      "吃的盐",
+      "倚老卖老",
+      "闲",
+      "管得宽"
+    ],
+    "scope": "broad",
+    "scene_constraints": [],
+    "relation_constraints": [],
+    "status": "verified",
+    "tone": "冷",
+    "strength": "中"
+  }
+]
