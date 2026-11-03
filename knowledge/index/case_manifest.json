@@ -145,6 +145,42 @@
     "strength": "中"
   },
   {
+    "case_id": "comfort-shilian",
+    "canonical_trigger": "朋友/闺蜜/兄弟失恋分手了，想安慰他/她",
+    "intent": "接住情绪，不劝道理不撒鸡汤，陪人缓过来",
+    "query_examples": [
+      "闺蜜失恋了我该怎么安慰她",
+      "兄弟分手了怎么劝他",
+      "朋友难过怎么安慰",
+      "怎么安慰刚分手的人",
+      "朋友哭了我该说什么"
+    ],
+    "keywords": [
+      "失恋",
+      "分手",
+      "安慰",
+      "难过",
+      "哭",
+      "怎么走出来",
+      "忘了他",
+      "忘了她"
+    ],
+    "scope": "relational",
+    "scene_constraints": [
+      "安慰",
+      "失恋",
+      "朋友情绪低落"
+    ],
+    "relation_constraints": [
+      "朋友",
+      "闺蜜",
+      "兄弟"
+    ],
+    "status": "verified",
+    "tone": "暖",
+    "strength": "低"
+  },
+  {
     "case_id": "cuihun-亲戚催婚",
     "canonical_trigger": "亲戚过年以关心为名追问你对象/催婚/揶揄，想敷衍怼回去",
     "intent": "应付亲戚过年的盘问/揶揄，不接茬",

@@ -89,6 +89,32 @@
     "renji-人机提问",
     "yidubuhui-已读不回"
   ],
+  "失恋": [
+    "comfort-shilian"
+  ],
+  "分手": [
+    "comfort-shilian",
+    "fenshou-说分手"
+  ],
+  "安慰": [
+    "comfort-shilian",
+    "haolei-说好累"
+  ],
+  "难过": [
+    "comfort-shilian"
+  ],
+  "哭": [
+    "comfort-shilian"
+  ],
+  "怎么走出来": [
+    "comfort-shilian"
+  ],
+  "忘了他": [
+    "comfort-shilian"
+  ],
+  "忘了她": [
+    "comfort-shilian"
+  ],
   "亲戚": [
     "cuihun-亲戚催婚"
   ],
@@ -190,9 +216,6 @@
   "不服气": [
     "dingzui-说你顶嘴"
   ],
-  "分手": [
-    "fenshou-说分手"
-  ],
   "男朋友": [
     "fenshou-说分手"
   ],
@@ -246,9 +269,6 @@
     "haolei-说好累"
   ],
   "累": [
-    "haolei-说好累"
-  ],
-  "安慰": [
     "haolei-说好累"
   ],
   "冷淡": [

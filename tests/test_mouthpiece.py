@@ -352,7 +352,7 @@ class TestMouthpiece(unittest.TestCase):
         no_cover = [
             "明天要给领导汇报工作怎么准备",
             "买第一辆车怎么选",
-            "闺蜜失恋了我该怎么安慰她",
+            "怎么给猫剪指甲",
             "今天下雨没带伞怎么办",
         ]
         for q in no_cover:

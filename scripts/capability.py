@@ -5,6 +5,7 @@
   BLESSING 节日祝福 / 祝福话术（后续喂料扩展）
   HIGH_EQ  高情商回复 / 得体话术（后续喂料扩展）
   RELATION 撩 / 情感拉扯（目标模式 G2）
+  COMFORT  安慰 / 情绪接住（心疼 + 轻调侃，不沉重）
   OTHER    未识别 → 不硬套任何能力
 
 核心约束：不同能力用各自的资料，**绝不跨能力串台**——
@@ -39,7 +40,13 @@ RELATION_SIGNALS = [
     "crush", "暧昧", "撩", "调情", "已读不回", "找话", "喜欢的人", "对象",
     "男朋友", "女朋友", "升温", "破冰", "哄", "绝交", "冷淡",
 ]
-# 回怼：默认能力（只要不是明确偏祝福/高情商/撩，都算回怼/回话）
+COMFORT_SIGNALS = [
+    "安慰", "失恋", "难过", "心情不好", "心情低落", "抑郁", "哭了", "哭",
+    "分手了", "失业", "被裁", "被开除", "考砸", "挂科", "委屈", "情绪崩溃",
+    "撑不下去", "压力大", "好累", "受不了了", "emo", "朋友难过", "闺蜜失恋",
+    "兄弟分手", "怎么劝", "怎么开导", "怎么陪",
+]
+# 回怼：默认能力（只要不是明确偏祝福/高情商/撩/安慰，都算回怼/回话）
 
 
 def detect_capability(text: str) -> str:
@@ -51,6 +58,9 @@ def detect_capability(text: str) -> str:
     if any(k and k.lower() in text.lower() for k in RELATION_SIGNALS):
         # 撩/情感拉扯单独成能力，避免被当"回怼"或"祝福"
         return "RELATION"
+    if any(k and k in text for k in COMFORT_SIGNALS):
+        # 安慰单独成能力：不接情绪、不怼人，先接住再轻调侃
+        return "COMFORT"
     return "RETORT"
 
 
@@ -84,11 +94,12 @@ _WEDDING_BLESSINGS = [
 ]
 
 # 高情商"温和化解"骨架（用于不当面撕破脸的场合；骨架级，待喂料扩展）
+# 真人话版：短、不解释、不道歉、给对方台阶也留自己体面
 _HIGH_EQ_PATTERNS = [
-    "你这么说，我听着多少有点不是滋味，但我知道你不是故意的。",
-    "这件事咱们换个说法聊，可能更好。",
-    "我理解你的出发点，但这么说我心里不太舒服。",
-    "咱们把话说开，就不伤和气了。",
+    "行，这事我知道了，回头咱单独对一下。",
+    "你说的我都记下了，具体怎么弄咱再碰。",
+    "面子上的事你放心，不会让你难办。",
+    "这话我先收下，这事我来安排。",
 ]
 
 # 撩·暧昧推拉骨架（G2 目标模式；骨架级）
@@ -98,10 +109,22 @@ _RELATION_PATTERNS = [
     "你说的这个，我可记下了。",
 ]
 
+# 安慰骨架（心疼 + 轻调侃接住情绪，不沉重、不说教、不"我理解你"）
+_COMFORT_PATTERNS = [
+    "先别想那么多，出来，我请你吃顿好的。",
+    "哭完了跟我说，我一直都在。",
+    "这事换我我也难受，咱不急着好，先缓两天。",
+    "你已经做得够多了，剩下的交给我。",
+    "今天不聊道理，就陪你浪费一下午。",
+    "难受就说出来，说完我带你去吃热乎的。",
+    "我不劝你别难过，我就陪着你，难过完了咱再想办法。",
+]
+
 _BY_CAP = {
     "BLESSING": {"keyword": "祝福", "pool": _GENERIC_BLESSINGS + _NEWYEAR_BLESSINGS + _BIRTHDAY_BLESSINGS + _WEDDING_BLESSINGS},
     "HIGH_EQ": {"keyword": "高情商", "pool": _HIGH_EQ_PATTERNS},
     "RELATION": {"keyword": "撩", "pool": _RELATION_PATTERNS},
+    "COMFORT": {"keyword": "安慰", "pool": _COMFORT_PATTERNS},
 }
 
 
