@@ -215,12 +215,13 @@ RAW INPUT
 ---
 
 ## 何时调用脚本 / 工具
+> 跨宿主提示：若宿主执行环境的工作目录不是本技能根（如 Codex），把所有 `scripts/...` 换成技能根绝对路径，例如 `python3 "<技能根>/scripts/retrieve.py" "<问题>" --json`。
 - 处理投喂的**结构化博主导出**（如博主导出的 .md）→ 可调用 `scripts/ingest.py` 做确定性清洗入库（末尾自动重建索引）。
 - 处理**连续逐字稿**（一个视频含多个 [对方话→回复]）→ 用 `scripts/ingest_transcript.py` 按语义拆成多个 case 入库；ASR 置信度过低 → `needs_review` 不直接引用。**一个视频可能 = 多个 case，必须按语义独立性拆分。**
 - **用户提问 → 统一检索**：`python3 scripts/retrieve.py "<问题>" --json` 一次拿全 GenerationPackage；不要逐文件读知识库。
 - 手动重建索引 → `scripts/index_builder.py`（正常不必要，ingest/rebuild 已自动调用）。
 - 替换 Provider（SQLite/向量库/Mem0）→ 改 `adapters/`，实现 `adapters/base.RetrievalService`，**不重写 Core**。见 `references/adapters.md`。
-- 跨宿主（Claude Code/Trae/WorkBuddy）→ 用对应 `adapters/host/`（每个 host 都有可执行的 KB 调用入口）。见 `references/hosting.md`。
+- 跨宿主（Claude Code/Codex/Trae/WorkBuddy）→ 用对应 `adapters/host/`（每个 host 都有可执行的 KB 调用入口）。见 `references/hosting.md`。
 - 性能/运行状态（仅开发调试）→ `scripts/retrieve.py --debug` 或 `scripts/mouthpiece.py --debug`；这些**绝不进用户回答**。
 - **偏好测评**：进入测评 → `python3 scripts/preference.py start [轮次]` 出题；用户选完后记录 → `python3 scripts/preference.py record <test_id> <A|B|都不好>`；结束生成/更新画像 → `python3 scripts/preference.py profile`；正常对话中隐式反馈 → `python3 scripts/preference.py feedback "太客气了"`。画像由 `mouthpiece` 生成时自动读取（仅风格层微调）。
 

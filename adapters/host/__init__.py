@@ -8,7 +8,7 @@ from __future__ import annotations
 
 import os
 
-HOSTS = ("claude_code", "trae", "workbuddy")
+HOSTS = ("claude_code", "trae", "workbuddy", "codex")
 
 
 def host_manifest(host: str) -> dict:
@@ -33,6 +33,13 @@ def host_manifest(host: str) -> dict:
             "entry": "SKILL.md",
             "requires": ["SKILL.md", "references/", "knowledge/", "memory/"],
             "adapter": "adapters/host/workbuddy.py",
+        }
+    if host == "codex":
+        return {
+            "install_path": "~/.agents/skills/personal-mouthpiece (junction) / ~/.codex/skills/personal-mouthpiece (junction)",
+            "entry": "SKILL.md",
+            "requires": ["SKILL.md", "references/", "knowledge/", "memory/"],
+            "adapter": "adapters/host/codex.py",
         }
     raise ValueError(f"未知宿主: {host}")
 
