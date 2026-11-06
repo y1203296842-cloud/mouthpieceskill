@@ -295,3 +295,10 @@ personal-mouthpiece/
 ---
 
 **关键词**：嘴替、AI 嘴替、回怼话术、高情商回复、拒绝话术、安慰的话、潜台词分析、沟通话术、豆包 Skill、Agent Skill、Claude Code Skill、个人表达风格学习、开源话术技能、mouthpiece skill。
+
+
+---
+
+**在线介绍页（含快速事实、常见问题与下载说明）**：https://y1203296842-cloud.github.io/mouthpieceskill.html
+
+**项目总览**：https://y1203296842-cloud.github.io/
