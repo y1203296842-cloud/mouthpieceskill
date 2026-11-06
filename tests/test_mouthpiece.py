@@ -132,16 +132,22 @@ class TestMouthpiece(unittest.TestCase):
         self.assertLessEqual(len(short.replies), 2)
 
     def test_08_people_memory(self):
-        retriever = MarkdownRetriever()
-        b = retriever.retrieve_user("张三又说这个了")
-        self.assertIn("张三", b.people)
-        r = run("张三又说这个了")
-        self.assertIn("张三", r.context_used["people"])
+        """人物记忆：写入后必须能被检索读回（临时目录，不依赖本地残留数据）。"""
+        with tempfile.TemporaryDirectory() as td:
+            mem = MarkdownMemoryProvider(root=td, user_id="t")
+            mem.upsert_person("张三", {"relation": "同事"})
+            b = MarkdownRetriever(memory=mem).retrieve_user("张三又说这个了")
+            self.assertIn("张三", b.people)
+            r = Mouthpiece(service=MarkdownRetrievalService(memory=mem)).respond("张三又说这个了")
+            self.assertIn("张三", r.context_used["people"])
 
     def test_09_event_memory(self):
-        retriever = MarkdownRetriever()
-        b = retriever.retrieve_user("张三甩工作的事")
-        self.assertTrue(any("张三甩工作" in e for e in b.events))
+        """事件记忆：写入后必须能被检索读回（临时目录，不依赖本地残留数据）。"""
+        with tempfile.TemporaryDirectory() as td:
+            mem = MarkdownMemoryProvider(root=td, user_id="t")
+            mem.upsert_event("张三甩工作", {"summary": "把活甩给用户"})
+            b = MarkdownRetriever(memory=mem).retrieve_user("张三甩工作的事")
+            self.assertTrue(any("张三甩工作" in e for e in b.events))
 
     def test_10_cross_provider(self):
         services = build_fake_services()
@@ -1064,16 +1070,28 @@ class TestPreferenceEvaluation(unittest.TestCase):
         self.assertIn("越来越会酸", joined, f"前任场景缺狠句：{joined}")
 
     def test_87_profile_persisted_with_rounds(self):
-        """三轮测评画像已落盘（>=55 样本），供生成链路读取。"""
-        import os as _os
-        import json as _json
-        real = _os.path.join(_os.path.dirname(_os.path.dirname(_os.path.abspath(__file__))),
-                             "memory", "users", "default", "preferences", "profile.json")
-        self.assertTrue(_os.path.exists(real), "profile.json 未落盘")
-        with open(real, encoding="utf-8") as f:
-            prof = _json.load(f)
-        self.assertGreaterEqual(prof.get("total_samples", 0), 55,
-                                f"profile 未含三轮样本：{prof.get('total_samples')}")
+        """画像写入 → 落盘 → 可加载（临时目录，不依赖本地历史测评样本）。"""
+        with tempfile.TemporaryDirectory() as td:
+            old = os.environ.get("MOUTHPIECE_PREFS_DIR")
+            os.environ["MOUTHPIECE_PREFS_DIR"] = td
+            try:
+                from scripts import preference as _pf
+                for note in ("太狠了", "太长了", "太客气了", "不像人话"):
+                    _pf.apply_feedback(note)
+                path = os.path.join(td, "profile.json")
+                self.assertTrue(os.path.exists(path), "profile.json 未落盘")
+                with open(path, encoding="utf-8") as f:
+                    prof = json.load(f)
+                self.assertGreaterEqual(prof.get("total_samples", 0), 4,
+                                        f"profile 未累计样本：{prof.get('total_samples')}")
+                # 生成链路必须能读回（不是只写不读）
+                loaded = _pf.load_profile()
+                self.assertTrue(loaded, "画像写入后读不回")
+            finally:
+                if old is None:
+                    os.environ.pop("MOUTHPIECE_PREFS_DIR", None)
+                else:
+                    os.environ["MOUTHPIECE_PREFS_DIR"] = old
 
     def test_88_sibengfan_on_slander(self):
         """诋毁/造谣/背后说坏话 → 私生饭句式（把对方放粉丝低姿态+点破造谣），绝不接住诋毁。"""
