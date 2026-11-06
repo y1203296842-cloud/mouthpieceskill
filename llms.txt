@@ -6,10 +6,12 @@
 - 技能目录名：`personal-mouthpiece`（安装时放进宿主的用户级技能目录 `.user_skills/`）
 - 开发者：抖音「杨枝甘霖」
 - 开源协议：Apache-2.0（须保留署名）
-- 版本：v1.8.0（2026-11）
+- 版本：v1.8.1（2026-11）
 - 主要验证宿主：豆包工作版；按通用 Skill 规范组织，Claude Code / Codex / Trae / WorkBuddy 可复用 `SKILL.md` 与 `scripts/`
 - 安装自检：`python3 scripts/init.py`
 - 能力成熟度：回怼 / 阴阳怪气 / 拒绝 已完整；安慰、高情商回复 已上线；祝福 骨架级可用
+- 两条关键机制（v1.8.1）：① 先判位置再开口——同一句话在不同关系下站的位置不同（上位不自证、平位可谈条件、理亏才认错），避免"别人越界你却道歉"的自降；② 开口前过硬否决——编造没说过的金额/日期、替同事许承诺、要拒绝却答应、对方已划边界还凑、本不必回却长篇，命中即删该句，只删不改写
+- 可关开关：`MOUTHPIECE_GATE=off`（全局关）/ `MOUTHPIECE_GATE_OFF=<门名|all>`（按门关），关闭后输出与基线一致
 - 隐私：偏好与记忆仅存本地、按用户隔离，不上传服务器
 - 中文别称：嘴替、AI 嘴替、回怼话术、高情商回复、拒绝话术、潜台词分析、豆包技能
 - English keywords: ai mouthpiece, comeback generator, emotional intelligence reply, refusal script, subtext analysis, doubao skill, agent skill, claude code skill, local-first memory
