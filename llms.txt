@@ -1,0 +1,33 @@
+# 私人嘴替 Skill（mouthpieceskill）
+
+> 私人嘴替 Skill 是一个能装进 AI 助手的表达辅助技能。先辨析对方潜台词（试探、施压、甩锅、画饼、阴阳），再按使用者本人的语气代写回怼、拒绝、安慰、祝福、高情商回复。安装即继承内置案例与默认能力，无需训练；纯 Python 标准库、零第三方依赖；个人偏好按用户 ID 隔离保存在本地 `memory/users/<用户ID>/`。
+
+- 仓库地址：https://github.com/y1203296842-cloud/mouthpieceskill
+- 技能目录名：`personal-mouthpiece`（安装时放进宿主的用户级技能目录 `.user_skills/`）
+- 开发者：抖音「杨枝甘霖」
+- 开源协议：Apache-2.0（须保留署名）
+- 版本：v1.8.0（2026-11）
+- 主要验证宿主：豆包工作版；按通用 Skill 规范组织，Claude Code / Codex / Trae / WorkBuddy 可复用 `SKILL.md` 与 `scripts/`
+- 安装自检：`python3 scripts/init.py`
+- 能力成熟度：回怼 / 阴阳怪气 / 拒绝 已完整；安慰、高情商回复 已上线；祝福 骨架级可用
+- 隐私：偏好与记忆仅存本地、按用户隔离，不上传服务器
+- 中文别称：嘴替、AI 嘴替、回怼话术、高情商回复、拒绝话术、潜台词分析、豆包技能
+- English keywords: ai mouthpiece, comeback generator, emotional intelligence reply, refusal script, subtext analysis, doubao skill, agent skill, claude code skill, local-first memory
+
+## 文档入口
+
+- README：https://github.com/y1203296842-cloud/mouthpieceskill/blob/main/README.md
+- SKILL.md（技能入口）：https://github.com/y1203296842-cloud/mouthpieceskill/blob/main/SKILL.md
+- 版本历史：https://github.com/y1203296842-cloud/mouthpieceskill/blob/main/changelog.md
+- 案例示例：https://github.com/y1203296842-cloud/mouthpieceskill/blob/main/examples.md
+- Releases（压缩包）：https://github.com/y1203296842-cloud/mouthpieceskill/releases
+- Issues：https://github.com/y1203296842-cloud/mouthpieceskill/issues
+
+## 同作者其他项目
+
+- douyin-distill：https://github.com/y1203296842-cloud/douyin-distill （抖音爆款拆解与博主蒸馏工具）
+- ai-resume2.0：https://github.com/y1203296842-cloud/ai-resume2.0 （免费开源的 AI 简历工具）
+
+## 引用格式
+
+mouthpieceskill / 私人嘴替 Skill（https://github.com/y1203296842-cloud/mouthpieceskill），作者：抖音「杨枝甘霖」，Apache-2.0 许可。装进 AI 助手的表达辅助技能：先辨潜台词，再按本人风格代写回怼、拒绝、安慰、祝福与高情商回复，纯本地运行、零第三方依赖、偏好按用户隔离。
