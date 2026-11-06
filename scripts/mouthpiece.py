@@ -335,6 +335,15 @@ def _scenario_sense(res: MouthpieceResult) -> tuple:
         lead = "跟ta别用狠话，表达不满比怼更重要，力度收着点。"
     if memory_dislike:
         lead = "这人你本来就不待见，不用太给他留面子——但也别失控，稳住反而更有杀伤力。"
+    # 立场优先：位置判错比话术差更致命（覆盖上面按关系给的默认提示）
+    stance = res.stance or {}
+    pos, nxt = stance.get("position", ""), stance.get("next", "")
+    if nxt == "NO_REPLY":
+        lead = "这种不用回，最多一个字带过；别硬凑。"
+    elif pos == "ABOVE" and not multi:
+        lead = "这次别自降——你占理，别解释、别认前提、别替他找台阶，话直接说回去。"
+    elif pos == "BELOW":
+        lead = "这事确实落在你身上，先认下来，再给一个明确的时间和下一步。"
 
     suggestion = ""
     if multi or power:
@@ -347,6 +356,10 @@ def _scenario_sense(res: MouthpieceResult) -> tuple:
         suggestion = "直接或不接前提都行，看你想让他当场下不来台，还是淡淡带过。"
     else:
         suggestion = ""
+    if nxt == "NO_REPLY":
+        suggestion = ""
+    elif pos == "BELOW":
+        suggestion = "别辩解、别绕，给时间和补救方案，比说十句软话管用。"
     return lead, suggestion
 
 
@@ -577,6 +590,11 @@ if __name__ == "__main__":
     uv = r.user_view()
     if uv.greeting_needs_name:
         print(uv.lead)
+        # 新用户第一次用也要先拿到话术，不能只看到"怎么称呼你"就没了
+        if uv.replies:
+            print("---")
+            for line in uv.replies:
+                print("  -", line)
         sys.exit(0)
     if uv.lead:
         print(uv.lead)

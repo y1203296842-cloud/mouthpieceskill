@@ -98,6 +98,14 @@ class TestGate(unittest.TestCase):
         st = judge("领导让我今晚加个班")
         self.assertFalse(self._ok("你说得对，我这水平确实配不上您这种“专业”。", "领导让我今晚加个班", st))
 
+    def test_13b_below_must_offer_remedy(self):
+        """理亏场景只给硬话不给补救/时间 → 拦；给了就放行。"""
+        st = judge("领导说我这个方案做得不到位")
+        self.assertFalse(self._ok("你这么在意别人这个的事，平时应该挺闲的。",
+                                  "领导说我这个方案做得不到位", st))
+        self.assertTrue(self._ok("这个确实没做到位，我复盘下原因，明天给您个解决方案。",
+                                 "领导说我这个方案做得不到位", st))
+
     def test_14_allows_below_apology(self):
         """真理亏时认错必须放行（不能把正确的认错也拦掉）。"""
         st = judge("我把表格漏了，领导问我怎么回事")

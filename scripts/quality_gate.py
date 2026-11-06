@@ -54,6 +54,12 @@ _ADMIT_INFERIOR = ("配不上您", "配不上你", "请您多指教", "请您指
 _CONCEDE_TURN = ("但", "不过", "可", "然而", "问题是", "可惜", "除非", "至于")
 
 
+# ---- 理亏场景：话术必须给补救/时间，不能只有嘴上的对抗 ----
+_REMEDY = ("复盘", "明天", "后天", "下班前", "中午前", "今晚", "方案", "补上", "补齐", "改好",
+           "原因", "下次", "马上", "现在", "我看看", "我核对", "我查", "解决", "重做", "加班",
+           "重新", "改一版", "调整", "跟进", "盯")
+
+
 def _is_generative(route: str) -> bool:
     return route in ("move_generate", "style_generate", "pattern_generate", "capability_generate")
 
@@ -122,6 +128,13 @@ def check_self_downgrade(reply: str, query: str, position: str) -> bool:
     return True
 
 
+def check_below_remedy(reply: str, query: str, position: str) -> bool:
+    """理亏场景：认了就得给补救/时间，光有硬话没有代价不算回应。"""
+    if position != "BELOW":
+        return True
+    return any(w in reply for w in _REMEDY)
+
+
 CHECKS = (
     ("unsupported_fact", check_unsupported_fact, "替你编了没说过的事实"),
     ("commits_others", check_commits_others, "替你替别人许了承诺"),
@@ -164,6 +177,12 @@ def gate_one(reply: str, query: str, next_action: str = "", position: str = "") 
         try:
             if not check_self_downgrade(reply, query, position):
                 fails.append("self_downgrade:上位场景却认错自降")
+        except Exception:
+            pass
+    if "below_remedy" not in off:
+        try:
+            if not check_below_remedy(reply, query, position):
+                fails.append("below_remedy:理亏却没给补救/时间")
         except Exception:
             pass
     return (not fails, fails)
