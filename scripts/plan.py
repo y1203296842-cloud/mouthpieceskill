@@ -125,6 +125,13 @@ def plan(user_input: str) -> Dict:
                 moves = list(dict.fromkeys(h["prefer_moves"] + moves))
             break
     moves = moves[:3]
+    # 立场判定（位置 × 下一步）：只增字段，不改动既有返回键
+    stance_info: Dict = {}
+    try:
+        from scripts.stance import judge as _judge_stance
+        stance_info = _judge_stance(user_input)
+    except Exception:
+        stance_info = {}
     return {
         "query": user_input,
         "capability": cap,
@@ -132,6 +139,7 @@ def plan(user_input: str) -> Dict:
         "relation": rel,
         "relation_note": hint.get("note", ""),
         "strength_cap": hint.get("cap_strength", 5),
+        "stance": stance_info,
         "recommended_moves": [m for m in (move_specs(mid) for mid in moves)],
     }
 

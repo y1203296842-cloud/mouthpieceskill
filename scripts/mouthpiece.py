@@ -91,6 +91,8 @@ class MouthpieceResult:
     style_spec: Optional[StyleSpec] = None
     state: Optional[RuntimeState] = None    # 仅供调试，绝不进入用户可见回复
     note: str = ""                          # 开发/调试注记，仅在 --debug 输出
+    stance: Dict = field(default_factory=dict)          # 立场判定（内部用，不进用户可见层）
+    gate_blocked: List[Dict] = field(default_factory=list)  # 被质检门拦下的句子（仅调试）
 
     def user_view(self) -> UserFacingResponse:
         """User-Facing Response Layer：只输出用户该看到的内容，隔离所有内部状态。
@@ -515,6 +517,25 @@ class Mouthpiece:
         if _relation(user_input) == "恋人":
             r.replies = [ln for ln in r.replies
                          if not any(w in ln for w in ("你心里应该清楚", "你自己心里清楚", "你心里有数", "你应该知道"))]
+        # ---- 硬否决质检门：只拦事实/立场/自降类硬错，不改写风格 ----
+        # 高匹配直引（answer_direct）不拦，保证保真；只作用于生成类路由。
+        if r.route in ("move_generate", "pattern_generate", "style_generate"):
+            try:
+                from scripts.stance import judge as _judge
+                from scripts.quality_gate import gate as _gate
+                st = _judge(user_input)
+                kept, blocked = _gate(r.replies, user_input, st)
+                r.stance = st
+                if kept:
+                    if blocked:
+                        r.note += f" gate_drop={len(blocked)}"
+                    r.replies = kept
+                elif blocked:
+                    # 全灭也不能交空话术：保留原输出，标注待上层重生成
+                    r.gate_blocked = blocked
+                    r.note += f" gate_blocked_all={len(blocked)}"
+            except Exception:
+                pass
         return r
 
 

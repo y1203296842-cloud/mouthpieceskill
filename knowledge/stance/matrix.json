@@ -1,0 +1,786 @@
+{
+  "version": "1.0",
+  "about": "立场矩阵：对方做了什么（behavior）× 你们什么关系（relation）→ 你站在什么位置（position）+ 该怎么出手（next）。用来防止『别人踩你，你还替他找台阶』的自降低位。表为本项目自建中文场景表。",
+  "positions": {
+    "ABOVE": "你在上位：对方越界/贬低/使唤，不该自证、不该认前提、不该放低姿态",
+    "AT": "平位：可接但可谈条件，话软事实不退，留证据不留把柄",
+    "BELOW": "你理亏：唯一允许认错+给确定性的场景",
+    "CUE": "线索位：对方话里有话或已设边界，只回应信号，不展开",
+    "DEPENDS": "看情况：亲密关系/情绪场景，先判断要不要接情绪",
+    "RARE": "少见位：对方身份不该这么说话，反常本身就是要接的点"
+  },
+  "next": {
+    "DIRECT": "直接回，不软化、不加客套",
+    "CHOOSE": "先给方向判断，再按场合选软或硬",
+    "NO_REPLY": "根本不必回，或一个字带过；不要硬凑回怼"
+  },
+  "relations": {
+    "senior": [
+      "领导",
+      "老板",
+      "上司",
+      "上级",
+      "manager",
+      "主管",
+      "老师",
+      "导师"
+    ],
+    "peer": [
+      "同事",
+      "同学",
+      "朋友",
+      "室友",
+      "舍友",
+      "闺蜜",
+      "兄弟",
+      "合伙人"
+    ],
+    "report": [
+      "下属",
+      "实习生",
+      "助理",
+      "组员"
+    ],
+    "client": [
+      "客户",
+      "甲方",
+      "乙方",
+      "服务对象",
+      "供应商"
+    ],
+    "stranger": [
+      "陌生",
+      "路人",
+      "网友",
+      "地铁",
+      "高铁",
+      "大爷",
+      "大妈",
+      "服务员",
+      "司机"
+    ],
+    "family": [
+      "亲戚",
+      "家人",
+      "长辈",
+      "爸妈",
+      "七大姑",
+      "八大姨",
+      "表哥",
+      "表姐",
+      "堂哥",
+      "堂姐",
+      "外婆",
+      "奶奶",
+      "爷爷",
+      "爸",
+      "妈",
+      "父母"
+    ],
+    "partner": [
+      "对象",
+      "男朋友",
+      "女朋友",
+      "恋人",
+      "老公",
+      "老婆",
+      "爱人"
+    ],
+    "crush": [
+      "crush",
+      "暧昧",
+      "喜欢的人"
+    ],
+    "ex": [
+      "前任",
+      "前女友",
+      "前男友",
+      "前夫",
+      "前妻",
+      "旧情人",
+      "前对象"
+    ],
+    "unknown": []
+  },
+  "behaviors": {
+    "B_ADD_WORK": {
+      "label": "给你加活/使唤你",
+      "keywords": [
+        "取快递",
+        "取件",
+        "带饭",
+        "帮我做",
+        "你来做",
+        "你来弄",
+        "替我",
+        "帮我弄",
+        "顺便",
+        "拖地",
+        "打印",
+        "跑腿",
+        "加班",
+        "再做一版",
+        "改一下",
+        "交给你了",
+        "让你",
+        "安排你",
+        "今晚就要",
+        "周末加班",
+        "辛苦一下",
+        "压给你",
+        "临时加",
+        "今晚给",
+        "顺手"
+      ],
+      "rows": {
+        "senior": "AT",
+        "peer": "ABOVE",
+        "report": "ABOVE",
+        "client": "ABOVE",
+        "stranger": "ABOVE",
+        "family": "AT",
+        "partner": "AT",
+        "crush": "AT",
+        "ex": "ABOVE",
+        "unknown": "ABOVE"
+      },
+      "next": {
+        "senior": "CHOOSE",
+        "peer": "DIRECT",
+        "report": "DIRECT",
+        "client": "CHOOSE",
+        "stranger": "DIRECT",
+        "family": "CHOOSE",
+        "partner": "CHOOSE",
+        "crush": "CHOOSE",
+        "ex": "DIRECT",
+        "unknown": "DIRECT"
+      }
+    },
+    "B_DEPRECATE": {
+      "label": "贬低你/贴标签",
+      "keywords": [
+        "太敏感",
+        "想太多",
+        "玻璃心",
+        "急了",
+        "破防",
+        "矫情",
+        "作",
+        "就这",
+        "这也算",
+        "你不行",
+        "垃圾",
+        "丑",
+        "胖",
+        "矮",
+        "土",
+        "穷",
+        "没家",
+        "学历",
+        "靠关系",
+        "关系户",
+        "走后门",
+        "拍马屁",
+        "脚臭",
+        "口臭",
+        "秃"
+      ],
+      "rows": {
+        "senior": "RARE",
+        "peer": "ABOVE",
+        "report": "RARE",
+        "client": "ABOVE",
+        "stranger": "ABOVE",
+        "family": "ABOVE",
+        "partner": "ABOVE",
+        "crush": "ABOVE",
+        "ex": "ABOVE",
+        "unknown": "ABOVE"
+      },
+      "next": {
+        "senior": "CHOOSE",
+        "peer": "DIRECT",
+        "report": "DIRECT",
+        "client": "DIRECT",
+        "stranger": "DIRECT",
+        "family": "CHOOSE",
+        "partner": "CHOOSE",
+        "crush": "CHOOSE",
+        "ex": "DIRECT",
+        "unknown": "DIRECT"
+      }
+    },
+    "B_MOCK": {
+      "label": "当众开涮/恶劣玩笑",
+      "keywords": [
+        "开玩笑",
+        "开涮",
+        "逗你",
+        "活跃气氛",
+        "别当真",
+        "你妈",
+        "你爸",
+        "绝交",
+        "嘲笑",
+        "当众",
+        "当着"
+      ],
+      "rows": {
+        "senior": "RARE",
+        "peer": "ABOVE",
+        "report": "RARE",
+        "client": "ABOVE",
+        "stranger": "ABOVE",
+        "family": "AT",
+        "partner": "AT",
+        "crush": "AT",
+        "ex": "ABOVE",
+        "unknown": "ABOVE"
+      },
+      "next": {
+        "senior": "CHOOSE",
+        "peer": "DIRECT",
+        "report": "DIRECT",
+        "client": "DIRECT",
+        "stranger": "DIRECT",
+        "family": "CHOOSE",
+        "partner": "CHOOSE",
+        "crush": "CHOOSE",
+        "ex": "DIRECT",
+        "unknown": "DIRECT"
+      }
+    },
+    "B_NOSY": {
+      "label": "打听隐私/越界问",
+      "keywords": [
+        "工资",
+        "多少工资",
+        "挣多少",
+        "对象",
+        "结婚",
+        "生孩子",
+        "买房",
+        "体重",
+        "多大了",
+        "年龄",
+        "存款",
+        "房贷",
+        "住哪",
+        "催生",
+        "催婚",
+        "生个儿子",
+        "生个孩子",
+        "什么时候生",
+        "要孩子",
+        "怎么还单着",
+        "什么时候结婚",
+        "还不结婚",
+        "争点气",
+        "带个对象回来"
+      ],
+      "rows": {
+        "senior": "AT",
+        "peer": "ABOVE",
+        "report": "ABOVE",
+        "client": "ABOVE",
+        "stranger": "ABOVE",
+        "family": "AT",
+        "partner": "AT",
+        "crush": "AT",
+        "ex": "ABOVE",
+        "unknown": "ABOVE"
+      },
+      "next": {
+        "senior": "CHOOSE",
+        "peer": "DIRECT",
+        "report": "CHOOSE",
+        "client": "CHOOSE",
+        "stranger": "DIRECT",
+        "family": "CHOOSE",
+        "partner": "CHOOSE",
+        "crush": "CHOOSE",
+        "ex": "DIRECT",
+        "unknown": "CHOOSE"
+      }
+    },
+    "B_COMPARE": {
+      "label": "跟你攀比",
+      "keywords": [
+        "比你贵",
+        "比你强",
+        "攀比",
+        "档次",
+        "买不起",
+        "我这一身",
+        "这项链",
+        "我买的是",
+        "你那算什么",
+        "比不上"
+      ],
+      "rows": {
+        "senior": "AT",
+        "peer": "ABOVE",
+        "report": "AT",
+        "client": "ABOVE",
+        "stranger": "ABOVE",
+        "family": "AT",
+        "partner": "AT",
+        "crush": "AT",
+        "ex": "ABOVE",
+        "unknown": "ABOVE"
+      },
+      "next": {
+        "senior": "CHOOSE",
+        "peer": "CHOOSE",
+        "report": "CHOOSE",
+        "client": "DIRECT",
+        "stranger": "DIRECT",
+        "family": "CHOOSE",
+        "partner": "CHOOSE",
+        "crush": "CHOOSE",
+        "ex": "DIRECT",
+        "unknown": "CHOOSE"
+      }
+    },
+    "B_SARCASM": {
+      "label": "阴阳你/话里有话",
+      "keywords": [
+        "阴阳",
+        "内涵",
+        "话里有话",
+        "含沙射影",
+        "影射",
+        "指桑骂槐",
+        "呵呵",
+        "有些人",
+        "有的人",
+        "说给谁听"
+      ],
+      "rows": {
+        "senior": "CUE",
+        "peer": "CUE",
+        "report": "CUE",
+        "client": "CUE",
+        "stranger": "ABOVE",
+        "family": "CUE",
+        "partner": "CUE",
+        "crush": "CUE",
+        "ex": "ABOVE",
+        "unknown": "CUE"
+      },
+      "next": {
+        "senior": "CHOOSE",
+        "peer": "DIRECT",
+        "report": "CHOOSE",
+        "client": "CHOOSE",
+        "stranger": "DIRECT",
+        "family": "CHOOSE",
+        "partner": "CHOOSE",
+        "crush": "CHOOSE",
+        "ex": "DIRECT",
+        "unknown": "CHOOSE"
+      }
+    },
+    "B_ASK_PROGRESS": {
+      "label": "问进度/催交付",
+      "keywords": [
+        "进度",
+        "做完没",
+        "什么时候给",
+        "好了没",
+        "到哪了",
+        "催",
+        "催了",
+        "还没",
+        "交付"
+      ],
+      "rows": {
+        "senior": "AT",
+        "peer": "AT",
+        "report": "RARE",
+        "client": "AT",
+        "stranger": "AT",
+        "family": "AT",
+        "partner": "AT",
+        "crush": "AT",
+        "ex": "AT",
+        "unknown": "AT"
+      },
+      "next": {
+        "senior": "CHOOSE",
+        "peer": "CHOOSE",
+        "report": "CHOOSE",
+        "client": "CHOOSE",
+        "stranger": "CHOOSE",
+        "family": "CHOOSE",
+        "partner": "CHOOSE",
+        "crush": "CHOOSE",
+        "ex": "CHOOSE",
+        "unknown": "CHOOSE"
+      }
+    },
+    "B_REPEAT_PUSH": {
+      "label": "重复催促（已回复过还催）",
+      "keywords": [
+        "又催",
+        "还在催",
+        "第三次",
+        "反复催",
+        "一直催",
+        "催了三次"
+      ],
+      "rows": {
+        "senior": "AT",
+        "peer": "ABOVE",
+        "report": "RARE",
+        "client": "AT",
+        "stranger": "ABOVE",
+        "family": "AT",
+        "partner": "AT",
+        "crush": "AT",
+        "ex": "ABOVE",
+        "unknown": "AT"
+      },
+      "next": {
+        "senior": "CHOOSE",
+        "peer": "DIRECT",
+        "report": "CHOOSE",
+        "client": "CHOOSE",
+        "stranger": "DIRECT",
+        "family": "CHOOSE",
+        "partner": "CHOOSE",
+        "crush": "CHOOSE",
+        "ex": "DIRECT",
+        "unknown": "CHOOSE"
+      }
+    },
+    "B_ESCALATE": {
+      "label": "提到要上报/告状",
+      "keywords": [
+        "上报",
+        "告状",
+        "找领导",
+        "告你",
+        "举报",
+        "反映一下",
+        "让你领导知道",
+        "HR"
+      ],
+      "rows": {
+        "senior": "AT",
+        "peer": "ABOVE",
+        "report": "RARE",
+        "client": "CUE",
+        "stranger": "ABOVE",
+        "family": "ABOVE",
+        "partner": "CUE",
+        "crush": "CUE",
+        "ex": "ABOVE",
+        "unknown": "CUE"
+      },
+      "next": {
+        "senior": "CHOOSE",
+        "peer": "DIRECT",
+        "report": "DIRECT",
+        "client": "CHOOSE",
+        "stranger": "DIRECT",
+        "family": "DIRECT",
+        "partner": "CHOOSE",
+        "crush": "CHOOSE",
+        "ex": "DIRECT",
+        "unknown": "CHOOSE"
+      }
+    },
+    "B_SHORT_ACK": {
+      "label": "仅简短确认/通报（不必回）",
+      "keywords": [
+        "收到",
+        "知道了",
+        "好的",
+        "行吧",
+        "已读",
+        "在吗",
+        "几点到",
+        "ok",
+        "OK",
+        "嗯",
+        "k",
+        "1"
+      ],
+      "rows": {
+        "senior": "AT",
+        "peer": "AT",
+        "report": "AT",
+        "client": "AT",
+        "stranger": "AT",
+        "family": "AT",
+        "partner": "AT",
+        "crush": "AT",
+        "ex": "AT",
+        "unknown": "AT"
+      },
+      "next": {
+        "senior": "NO_REPLY",
+        "peer": "NO_REPLY",
+        "report": "NO_REPLY",
+        "client": "NO_REPLY",
+        "stranger": "NO_REPLY",
+        "family": "NO_REPLY",
+        "partner": "NO_REPLY",
+        "crush": "NO_REPLY",
+        "ex": "NO_REPLY",
+        "unknown": "NO_REPLY"
+      }
+    },
+    "B_BOUNDARY": {
+      "label": "对方已明确设边界",
+      "keywords": [
+        "别再说",
+        "别再问",
+        "别联系",
+        "不想聊",
+        "不想见",
+        "到此为止",
+        "别烦我",
+        "拉黑",
+        "别再找"
+      ],
+      "rows": {
+        "senior": "CUE",
+        "peer": "CUE",
+        "report": "CUE",
+        "client": "CUE",
+        "stranger": "CUE",
+        "family": "CUE",
+        "partner": "CUE",
+        "crush": "CUE",
+        "ex": "CUE",
+        "unknown": "CUE"
+      },
+      "next": {
+        "senior": "CHOOSE",
+        "peer": "CHOOSE",
+        "report": "CHOOSE",
+        "client": "CHOOSE",
+        "stranger": "CHOOSE",
+        "family": "CHOOSE",
+        "partner": "CHOOSE",
+        "crush": "CHOOSE",
+        "ex": "CHOOSE",
+        "unknown": "CHOOSE"
+      }
+    },
+    "B_VULNERABLE": {
+      "label": "对方示弱/求助",
+      "keywords": [
+        "好累",
+        "难过",
+        "伤心",
+        "失恋",
+        "撑不住",
+        "想哭",
+        "低落",
+        "崩溃",
+        "被骂",
+        "被裁",
+        "生病"
+      ],
+      "rows": {
+        "senior": "DEPENDS",
+        "peer": "DEPENDS",
+        "report": "DEPENDS",
+        "client": "DEPENDS",
+        "stranger": "DEPENDS",
+        "family": "DEPENDS",
+        "partner": "DEPENDS",
+        "crush": "DEPENDS",
+        "ex": "DEPENDS",
+        "unknown": "DEPENDS"
+      },
+      "next": {
+        "senior": "CHOOSE",
+        "peer": "CHOOSE",
+        "report": "CHOOSE",
+        "client": "CHOOSE",
+        "stranger": "CHOOSE",
+        "family": "CHOOSE",
+        "partner": "CHOOSE",
+        "crush": "CHOOSE",
+        "ex": "CHOOSE",
+        "unknown": "CHOOSE"
+      }
+    },
+    "B_FLIRT": {
+      "label": "暧昧试探",
+      "keywords": [
+        "crush",
+        "暧昧",
+        "在干嘛",
+        "躲我",
+        "已读不回",
+        "撩",
+        "冷淡",
+        "升温",
+        "喜欢的人",
+        "找话",
+        "约"
+      ],
+      "rows": {
+        "senior": "CUE",
+        "peer": "CUE",
+        "report": "CUE",
+        "client": "CUE",
+        "stranger": "CUE",
+        "family": "CUE",
+        "partner": "DEPENDS",
+        "crush": "DEPENDS",
+        "ex": "CUE",
+        "unknown": "CUE"
+      },
+      "next": {
+        "senior": "CHOOSE",
+        "peer": "CHOOSE",
+        "report": "CHOOSE",
+        "client": "CHOOSE",
+        "stranger": "CHOOSE",
+        "family": "CHOOSE",
+        "partner": "CHOOSE",
+        "crush": "CHOOSE",
+        "ex": "CHOOSE",
+        "unknown": "CHOOSE"
+      }
+    },
+    "B_EX_BACK": {
+      "label": "前任回头/翻旧账",
+      "keywords": [
+        "前任",
+        "前女友",
+        "前男友",
+        "前对象",
+        "分手后",
+        "回头找我",
+        "复合",
+        "旧账",
+        "当年"
+      ],
+      "rows": {
+        "senior": "ABOVE",
+        "peer": "ABOVE",
+        "report": "ABOVE",
+        "client": "ABOVE",
+        "stranger": "ABOVE",
+        "family": "ABOVE",
+        "partner": "ABOVE",
+        "crush": "ABOVE",
+        "ex": "ABOVE",
+        "unknown": "ABOVE"
+      },
+      "next": {
+        "senior": "DIRECT",
+        "peer": "DIRECT",
+        "report": "DIRECT",
+        "client": "DIRECT",
+        "stranger": "DIRECT",
+        "family": "DIRECT",
+        "partner": "DIRECT",
+        "crush": "DIRECT",
+        "ex": "DIRECT",
+        "unknown": "DIRECT"
+      }
+    },
+    "B_OWN_FAULT": {
+      "label": "确实是你理亏（认错场景）",
+      "keywords": [
+        "我忘",
+        "我没做",
+        "我搞砸",
+        "我迟到",
+        "是我的错",
+        "我拖了",
+        "没做到位",
+        "我弄错"
+      ],
+      "rows": {
+        "senior": "BELOW",
+        "peer": "BELOW",
+        "report": "AT",
+        "client": "BELOW",
+        "stranger": "BELOW",
+        "family": "BELOW",
+        "partner": "BELOW",
+        "crush": "BELOW",
+        "ex": "AT",
+        "unknown": "BELOW"
+      },
+      "next": {
+        "senior": "DIRECT",
+        "peer": "DIRECT",
+        "report": "CHOOSE",
+        "client": "DIRECT",
+        "stranger": "DIRECT",
+        "family": "DIRECT",
+        "partner": "DIRECT",
+        "crush": "DIRECT",
+        "ex": "CHOOSE",
+        "unknown": "DIRECT"
+      }
+    },
+    "B_NOISE_PUBLIC": {
+      "label": "公共场合噪音/熊孩子",
+      "keywords": [
+        "嫌吵",
+        "孩子吵",
+        "一等座",
+        "熊孩子",
+        "公放",
+        "外放",
+        "插队",
+        "地铁上",
+        "高铁上"
+      ],
+      "rows": {
+        "senior": "ABOVE",
+        "peer": "ABOVE",
+        "report": "ABOVE",
+        "client": "ABOVE",
+        "stranger": "ABOVE",
+        "family": "ABOVE",
+        "partner": "ABOVE",
+        "crush": "ABOVE",
+        "ex": "ABOVE",
+        "unknown": "ABOVE"
+      },
+      "next": {
+        "senior": "DIRECT",
+        "peer": "DIRECT",
+        "report": "DIRECT",
+        "client": "DIRECT",
+        "stranger": "DIRECT",
+        "family": "DIRECT",
+        "partner": "DIRECT",
+        "crush": "DIRECT",
+        "ex": "DIRECT",
+        "unknown": "DIRECT"
+      }
+    }
+  },
+  "priority": [
+    "B_OWN_FAULT",
+    "B_BOUNDARY",
+    "B_EX_BACK",
+    "B_NOISE_PUBLIC",
+    "B_SHORT_ACK",
+    "B_DEPRECATE",
+    "B_MOCK",
+    "B_NOSY",
+    "B_COMPARE",
+    "B_ADD_WORK",
+    "B_REPEAT_PUSH",
+    "B_ESCALATE",
+    "B_ASK_PROGRESS",
+    "B_SARCASM",
+    "B_VULNERABLE",
+    "B_FLIRT"
+  ]
+}

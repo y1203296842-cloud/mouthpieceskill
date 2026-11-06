@@ -2,7 +2,24 @@
 
 版本历史说明。**SKILL.md 只保留当前有效规则，不夹带历史。**
 
-## v1.8.0（当前 · 发布版）
+## v1.8.1（当前）
+**来源**：评估开源项目 `jev-chat/jev-chat-jarvis`（MIT，Kotlin/Android 聊天副驾）后，只吸收 3 个纯规则机制，不搬其平台与代码。
+
+- **立场矩阵（新增 `knowledge/stance/matrix.json` + `scripts/stance.py`）**：
+  - 16 个行为 × 10 种关系 → `position`（ABOVE/AT/BELOW/CUE/DEPENDS/RARE）+ `next`（DIRECT/CHOOSE/NO_REPLY）。
+  - 解决"上位场景自降低位"：同级的室友使唤你＝ABOVE（不自证不道歉）；领导加活＝AT（话软边界不让）；确实漏活＝BELOW（唯一认错场景）。
+  - 含两条句式级规则（不靠死词表）：`让我/叫你/派我 + 动作` → 派活；`说我 + 工作产出 + 负面词` → 真锅（认错）。
+  - `plan()` 返回值新增 `stance` 键；既有返回键一个未动。
+- **硬否决质检门（新增 `scripts/quality_gate.py`）**：
+  - 六道门：`unsupported_fact`（替你编金额/日期）、`commits_others`（替你替第三方许承诺）、`opposite_stance`（要拒绝却答应）、`crosses_boundary`（对方划边界还凑）、`self_downgrade`（上位场景认错自降，含隐性形态"你说得对，我这水平配不上"）、`no_reply_overrun`（本不必回却长篇/多条）。
+  - **只删不改写**：命中即剔除该句，不改写风格，保证优秀话术不被二次弱化。
+  - 只作用于生成类路由（`move_generate`/`pattern_generate`/`style_generate`）；高匹配直引不过门（保真）。
+  - 开关：`MOUTHPIECE_GATE=off` 全局关；`MOUTHPIECE_GATE_OFF=<门名逗号分隔|all>` 按门关。
+  - 全灭时不交空话术：保留原输出并在 `note` 标 `gate_blocked_all`。
+- **验证**：109 项测试全绿（原 86 项 + 新增 23 项 `tests/test_stance_gate.py`，2.36s）；`MOUTHPIECE_GATE=off` 实测输出与基线逐字一致（零侵入、可整体回滚）。
+- **未采纳**：其 Android 读屏/OCR/Kotlin 栈（宿主不重叠）、云端 LLM 决策接口（本项目零依赖原则）、三条并列候选 UI（本项目路由已覆盖）。该仓库不含可复用话术语料，仅框架可借鉴。
+
+## v1.8.0（发布版）
 - **默认能力层（三层结构，随包分发，新用户安装即继承）**：
   1. 优秀原始案例：`knowledge/cases/`（40 个 verified case，全部可合法分发）；
   2. 长期回怼经验：`knowledge/style/lessons.md`（由 78 样本测评 + 26 条用户验证经验提炼：高位立场/私生饭/翻旧账/对仗点破/有梗/分关系/事实成立反向攻击/失败模式红线）；
